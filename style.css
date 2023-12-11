@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(235, 21%, 11%);
+  background-image: url(images/bg-desktop-dark.jpg),
+    linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: top;
+  height: 540px;
+}
+
+.cross {
+  width: 12px;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  display: none;
+  transition: 0.4s ease;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid hsl(237, 14%, 26%);
+}
+
+main {
+  width: 40%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* header img {
+  padding: ;
+} */
+
+header p {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.75rem;
+}
+
+/* main section {
+  background-color: hsl(235, 24%, 19%);
+} */
+
+.input {
+  background-color: hsl(235, 24%, 19%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input .taskInput {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  padding-left: 1rem;
+  color: white;
+}
+
+.input .taskInput::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.taskBody {
+  background-color: hsl(235, 24%, 19%);
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tasks {
+  height: 290px;
+  overflow-y: scroll;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid hsl(237, 14%, 26%);
+  padding: 1rem;
+  /* margin-bottom: 0.5rem; */
+  width: 100%;
+  position: relative;
+}
+
+.task:hover .cross {
+  display: block;
+}
+
+.task .taskToPerform {
+  margin-left: 1rem;
+  color: hsl(234, 11%, 52%);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.taskOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: hsl(233, 14%, 35%);
+  padding: 0.5rem 1rem;
+  font-size: 10px;
+  border-top: 1px solid hsl(237, 14%, 26%);
+}
+
+.taskOption p,
+.taskOption span {
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  font-weight: 700;
+}
+
+.actions .sort {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.actions a {
+  text-decoration: none;
+  font-size: 15px;
+  color: hsl(233, 14%, 35%);
+  cursor: pointer;
+}
+
+.actions a:hover {
+  color: hsl(236, 33%, 92%);
+}
+
+.taskBody .complete p {
+  text-decoration: line-through;
+  font-weight: 400;
+  color: hsl(233, 14%, 35%);
+}
+
+.light .taskBody .complete p {
+  text-decoration: line-through;
+  font-weight: 400;
+  color: hsl(233, 11%, 84%);
+}
+
+.taskBody .complete .circle {
+  background-image: url(images/icon-check.svg),
+    linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.circle:hover {
+  border: 1px solid hsl(192, 100%, 67%);
+}
+
+.light {
+  background-color: hsl(236, 33%, 92%);
+  background-image: url(images/bg-desktop-light.jpg),
+    linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: top;
+}
+
+.light .input {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.light .input .taskInput {
+  color: hsl(235, 19%, 35%);
+}
+
+.light .taskBody {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.light .task {
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+
+.light .task .taskToPerform {
+  color: hsl(234, 11%, 52%);
+}
+
+.light .circle {
+  border: 1px solid hsl(233, 11%, 84%);
+}
+
+.light .taskOption,
+.light .taskOption a {
+  color: hsl(236, 9%, 61%);
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+.light .circle:hover {
+  border: 1px solid hsl(192, 100%, 67%);
+}
+
+.light .taskOption a:hover {
+  color: hsl(235, 19%, 35%);
+}
+
+.actions .sort .active,
+.light .circle .active {
+  color: hsl(220, 98%, 61%);
+}
+
+.sort {
+  display: none;
+}
+
+@media only screen and (max-width: 375px) {
+  body {
+    display: block;
+    height: 100%;
+    background-size: 100% 30%;
+  }
+
+  main {
+    padding: 2.5rem 5%;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  header {
+    margin-bottom: 1rem;
+  }
+
+  .task .taskToPerform {
+    font-size: 12px;
+  }
+
+  header p {
+    font-size: 25px;
+  }
+
+  .taskOption,
+  .taskOption a {
+    font-size: 12px;
+  }
+
+  .input .taskInput::placeholder,
+  .input .taskInput {
+    font-size: 12px;
+  }
+
+  .taskOption .actions .sort {
+    display: none;
+  }
+
+  .taskOption {
+    display: flex;
+    width: 100%;
+  }
+
+  .taskOption .actions {
+    width: max-content;
+  }
+
+  .sort {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: hsl(235, 24%, 19%);
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 3px;
+    background-color: hsl(0, 0%, 98%);
+  }
+
+  .sort a {
+    color: hsl(233, 14%, 35%);
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .sort .active {
+    color: hsl(220, 98%, 61%);
+  }
+
+  .light {
+    background-color: hsl(236, 33%, 92%);
+    background-image: url(images/bg-desktop-light.jpg),
+      linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: top;
+  }
+
+  .cross {
+    display: block;
+  }
+}
+
+.hidden {
+  display: none;
+}
